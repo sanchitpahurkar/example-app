@@ -1,12 +1,12 @@
 <?php
-$a = 10;
+$a = 10; // initial values
 $b = 20;
 
 echo "Before swapping: a = " . $a . ", b = " . $b . "<br>";
 
 $temp = $a;
 $a = $b;
-$b = $temp;
+$b = $temp; // swapping mechanism code
 
 echo "After swapping: a = " . $a . ", b = " . $b;
 ?>
