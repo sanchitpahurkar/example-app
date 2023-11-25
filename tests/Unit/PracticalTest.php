@@ -1,20 +1,57 @@
 <?php
+class PracticalTest extends \PHPUnit\Framework\TestCase {
 
-namespace Tests\Unit;
+public function testAddAcceptsFloat() {
+    $result = add(1.5, 3.5);
+    $this->assertEquals(5.0, $result);
+}
 
-use PHPUnit\Framework\TestCase;
-use practicals\Practical; // Correct namespace import for Practical class
+public function testAddAcceptsFloatInteger() {
+    $result = add(1.5, 2);
+    $this->assertEquals(3.5, $result);
+}
 
-require(__DIR__.'/../../practicals/Practical.php'); // Correct path to Practical.php
+public function testAddAcceptsIntegerString() {
+    $result = add("1", "2");
+    $this->assertEquals(3, $result);
+}
 
-class PracticalTest extends TestCase
-{
-    /**
-     * A basic unit test example.
-     */
-    public function testAdd(): void
-    {
-        $this->assertEquals(Practical::add(1, 3), 4);
-    }
+public function testAddAcceptsFloatString() {
+    $result = add("1.4", "3.14");
+    $this->assertEquals(5.54, $result);
+}
+
+public function testAddRejectsAlphabetString() {
+    $this->expectException(InvalidArgumentException::class);
+    add("abc", "xyz");
+}
+
+public function testAddRejectsAlphanumericString() {
+    $this->expectException(InvalidArgumentException::class);
+    add("a1", 1);
+}
+
+public function testFibonacciAcceptsInteger() {
+    $result = generateFibonacciSequence(4);
+    $this->assertEquals([0, 1, 1, 2], $result);
+}
+
+public function testFibonacciRejectsIntegerString() {
+    $this->expectException(InvalidArgumentException::class);
+    generateFibonacciSequence("4");
+}
+
+public function testFibonacciRejectsAlphabetString() {
+    $this->expectException(InvalidArgumentException::class);
+    generateFibonacciSequence("abc");
+}
+
+public function testFibonacciRejectsFloat() {
+    $this->expectException(InvalidArgumentException::class);
+    generateFibonacciSequence(3.5);
+}
+
+// Additional tests for other scenarios can be added here
+
 }
 ?>
