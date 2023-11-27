@@ -1,57 +1,32 @@
 <?php
-
+namespace practicals;
+// Define the Song class
 class Song {
-    private $title;
-    private $artist;
-    private $genre;
-    private $tempo;
+    // Properties
+    public $title;
+    public $artist;
+    public $genre;
+    public $tempo;
 
-    // Constructor to initialize the Song object with default values
-    public function __construct($title, $artist, $genre, $tempo) {
-        $this->title = $title;
-        $this->artist = $artist;
-        $this->genre = $genre;
-        $this->tempo = $tempo;
-    }
-
-    // Getter for Title
-    public function getTitle() {
-        return $this->title;
-    }
-
-    // Setter for Title
-    public function setTitle($title) {
-        $this->title = $title;
-    }
-
-    // Getter for Artist
-    public function getArtist() {
-        return $this->artist;
-    }
-
-    // Setter for Artist
-    public function setArtist($artist) {
-        $this->artist = $artist;
-    }
-
-    // Getter for Genre
-    public function getGenre() {
-        return $this->genre;
-    }
-
-    // Setter for Genre
-    public function setGenre($genre) {
-        $this->genre = $genre;
-    }
-
-    // Getter for Tempo
-    public function getTempo() {
-        return $this->tempo;
-    }
-
-    // Setter for Tempo
-    public function setTempo($tempo) {
-        $this->tempo = $tempo;
-    }
+    // Constructor to initialize the properties
+        public function __construct($title=null, $artist=null, $genre=null, $tempo=null) {
+            $this->title = $title;
+            $this->artist = $artist;
+            $this->genre = $genre;
+        }
+        // Setter method for tempo
+        public function setTempo($tempo) {
+            $this->tempo = $tempo;
+            // Check if $tempo is either an integer or a string containing only digits
+            if (is_int($tempo) || (is_string($tempo) && ctype_digit($tempo))) {
+                $this->tempo = (int) $tempo; // Convert to integer if it's a string
+            } else {
+                throw new \InvalidArgumentException('Tempo must be an integer or a string containing only digits.');
+            }
+        }
+        public function getTempo() {
+            return $this->tempo;
+        }
+    
 }
 ?>
