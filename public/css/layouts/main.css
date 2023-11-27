@@ -1,0 +1,57 @@
+      /* Your general styles for layout, fonts, etc. */
+
+/* Specific styles for the music app home page */
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    min-height: 100vh;
+    background-color: #191414; /* Dark background similar to Spotify */
+    color: #fff; /* Text color */
+}
+
+.header {
+    grid-column: span 2;
+    padding: 20px;
+    background-color: #1DB954; /* Green color similar to Spotify */
+    text-align: center;
+}
+
+.sidebar {
+    background-color: #121212; /* Dark sidebar */
+    padding: 20px;
+}
+
+.playlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.playlist li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.content {
+    padding: 20px;
+}
+
+.featured-songs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.song {
+    background-color: #282828; /* Song box color */
+    padding: 10px;
+}
+
+.footer {
+    grid-column: span 2;
+    text-align: center;
+    padding: 10px;
+    background-color: #121212; /* Dark footer */
+}
