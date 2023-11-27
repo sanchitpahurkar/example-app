@@ -26,4 +26,14 @@ class SongsTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testSongsStatic(): void
+    {
+        // Perform an HTTP GET request to /songs_static
+        $response = $this->get('/songs_static');
+
+        // Assert that the status code is 200 (which should fail)
+        $response->assertStatus(200);
+    }
 }
+?>
