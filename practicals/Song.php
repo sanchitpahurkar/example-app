@@ -27,6 +27,20 @@ class Song {
         public function getTempo() {
             return $this->tempo;
         }
+        public function setTitle($title) {
+            $this->title = $title;
+        }
     
+        public function setArtist($artist) {
+            $this->artist = $artist;
+        }
+    
+        public function getTitle() {
+            return $this->title;
+        }
+    
+        public function getArtist() {
+            return $this->artist;
+        }
 }
 ?>
