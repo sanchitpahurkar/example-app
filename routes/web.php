@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Models\Song;
+use App\Http\Controllers\PlaylistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,9 +38,14 @@ Route::get('/songs_static', function () {
     return view('songs_static');
   });
 
-  Route::get('/songs', function() {
-      $songs = Song::all(); // Fetch all songs from the database
-  
-      return view('songs', ['songs' => $songs]);
-  });
+Route::get('/songs', function() {
+    $songs = Song::all(); // Fetch all songs from the database
+ 
+    return view('songs', ['songs' => $songs]);
+});
+
+Route::get('/playlists/{playlistId}',  function ($playlistId) {
+    return view('playlist',[ 'songs' => Song::all(), 'playlistId' => $playlistId]);
+});
+
   

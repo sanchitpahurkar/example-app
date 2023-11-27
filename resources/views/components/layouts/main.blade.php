@@ -17,21 +17,7 @@
         </ul>
     </aside>
 
-    <main class="content">
-        <!-- Main content (featured songs, albums, etc.) -->
-        <h2>Featured Songs</h2>
-        <div class="featured-songs">
-            <div class="song">
-                <h3>Song Title 1</h3>
-                <p>Artist Name - Album Name</p>
-            </div>
-            <div class="song">
-                <h3>Song Title 2</h3>
-                <p>Artist Name - Album Name</p>
-            </div>
-            <!-- Add more featured songs -->
-        </div>
-    </main>
+    @yield('content')
 
     <footer class="footer">
         <!-- Footer content (copyright, about, etc.) -->
