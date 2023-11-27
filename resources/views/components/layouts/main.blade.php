@@ -1,6 +1,4 @@
-<title>
-  Music App
-</title>
+<title>{{ $title ?? "Cool Web App" }}</title>
 <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet" />
 <div class="container">
     <header class="header">
