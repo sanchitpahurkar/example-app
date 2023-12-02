@@ -1,18 +1,19 @@
-<main class="content">
-        <!-- Main content (featured songs, albums, etc.) -->
-        <h2>Featured Songs</h2>
-        <div class="featured-songs">
+<section>
+            <div>
+                <div>Serial No</div>
+                <div>Song Title</div>
+                <div>Artist Name</div>
+                <div>Album Name</div>
+                <div>Duration</div>
+            </div>
             @foreach($songs as $song)
-            <div class="song">
-                <h3>{{ $song['title'] }}</h3>
-                <p>{{ $song['artist'] }}</p>
-            </div>
-            <div class="song">
-            <h3>{{ $song['title'] }}</h3>
-            <p>{{ $song['artist'] }}</p>
-            </div>
+                <!-- Song 1 -->
+                <div class="song">
+                    <div>{{ $song->id }}</div>
+                    <div>{{ $song->title }}</div>
+                    <div>{{ $song->artist }}</div>
+                    <div>Album 1</div>
+                    <div>3:30</div>
+                </div>
             @endforeach
-            <!-- Add more featured songs -->
-        </div>
-
-    </main>
+        </section>  

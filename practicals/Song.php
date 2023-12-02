@@ -1,46 +1,77 @@
 <?php
-namespace Practicals;
-// Define the Song class
+ namespace Practicals;
 class Song {
-    // Properties
-    public $title;
-    public $artist;
-    public $genre;
-    public $tempo;
+    private $title;
+    private $artist;
+    private $genre;
+    private $tempo;
 
-    // Constructor to initialize the properties
-        public function __construct($title=null, $artist=null, $genre=null, $tempo=null) {
-            $this->title = $title;
-            $this->artist = $artist;
-            $this->genre = $genre;
+    /**
+     * Setter function for setting the title of the song
+     * @param string $title The title of the song
+     */
+    public function setTitle($title) {
+        $this->title = $title;
+    }
+
+    /**
+     * Getter function for retrieving the title of the song
+     * @return string The title of the song
+     */
+    public function getTitle() {
+        return $this->title;
+    }
+
+    /**
+     * Setter function for setting the artist of the song
+     * @param string $artist The artist of the song
+     */
+    public function setArtist($artist) {
+        $this->artist = $artist;
+    }
+
+    /**
+     * Getter function for retrieving the artist of the song
+     * @return string The artist of the song
+     */
+    public function getArtist() {
+        return $this->artist;
+    }
+
+    /**
+     * Setter function for setting the genre of the song
+     * @param string $genre The genre of the song
+     */
+    public function setGenre($genre) {
+        $this->genre = $genre;
+    }
+
+    /**
+     * Getter function for retrieving the genre of the song
+     * @return string The genre of the song
+     */
+    public function getGenre() {
+        return $this->genre;
+    }
+
+    /**
+     * Setter function for setting the tempo of the song
+     * @param string $tempo The tempo of the song
+     */
+    public function setTempo($tempo) {
+        if (!is_numeric($tempo) || floatval($tempo) != intval($tempo)) {
+            throw new \InvalidArgumentException('Tempo must be an integer or an integer string.');
         }
-        // Setter method for tempo
-        public function setTempo($tempo) {
-            $this->tempo = $tempo;
-            // Check if $tempo is either an integer or a string containing only digits
-            if (is_int($tempo) || (is_string($tempo) && ctype_digit($tempo))) {
-                $this->tempo = (int) $tempo; // Convert to integer if it's a string
-            } else {
-                throw new \InvalidArgumentException('Tempo must be an integer or a string containing only digits.');
-            }
-        }
-        public function getTempo() {
-            return $this->tempo;
-        }
-        public function setTitle($title) {
-            $this->title = $title;
-        }
-    
-        public function setArtist($artist) {
-            $this->artist = $artist;
-        }
-    
-        public function getTitle() {
-            return $this->title;
-        }
-    
-        public function getArtist() {
-            return $this->artist;
-        }
+        $this->tempo = $tempo;
+    }
+
+    /**
+     * Getter function for retrieving the tempo of the song
+     * @return string The tempo of the song
+     */
+    public function getTempo() {
+        return $this->tempo;
+    }
 }
+
 ?>

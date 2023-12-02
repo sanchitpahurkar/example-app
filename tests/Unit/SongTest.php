@@ -1,39 +1,54 @@
 <?php
+
 namespace Tests\Unit;
+
+use InvalidArgumentException;
+
+// SongTest.php
 use PHPUnit\Framework\TestCase;
-require(__DIR__.'/../../practicals/Song.php');
-use practicals\Song;
+use Practicals\Song;
 
-class SongTest extends TestCase
-{
-    public function testSetTempo()
-    {
+class SongTest extends TestCase {
+    public function testSetTempo() {
+        // Arrange
         $song = new Song();
+
+        // Act
         $song->setTempo(60);
-        $this->assertEquals(60, $song->getTempo());
+        $result = $song->getTempo();
+
+        // Assert
+        $this->assertEquals(60, $result);
     }
 
-    public function testSetTempoAcceptsIntegerString()
-    {
+    public function testSetTempoAcceptsIntegerString() {
+        // Arrange
         $song = new Song();
+
+        // Act
         $song->setTempo("60");
-        $this->assertEquals(60, $song->getTempo());
+        $result = $song->getTempo();
+
+        // Assert
+        $this->assertEquals(60, $result);
     }
 
-    public function testSetTempoRejectsAlphabetString()
-    {
-        $this->expectException(\InvalidArgumentException::class);
+    public function testSetTempoRejectsAlphabetString() {
+        // Arrange
+        $this->expectException(InvalidArgumentException::class);
 
+        // Act
         $song = new Song();
         $song->setTempo("60 BPM");
     }
 
-    public function testSetTempoRejectsFloat()
-    {
-        $this->expectException(\InvalidArgumentException::class);
+    public function testSetTempoRejectsFloat() {
+        // Arrange
+        $this->expectException(InvalidArgumentException::class);
 
+        // Act
         $song = new Song();
         $song->setTempo(60.5);
     }
-
 }
+?>  

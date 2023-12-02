@@ -1,57 +1,51 @@
-      /* Your general styles for layout, fonts, etc. */
-
-/* Specific styles for the music app home page */
-.container {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: auto 1fr auto;
-    gap: 10px;
-    min-height: 100vh;
-    background-color: #191414; /* Dark background similar to Spotify */
-    color: #fff; /* Text color */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
-    grid-column: span 2;
-    padding: 20px;
-    background-color: #1DB954; /* Green color similar to Spotify */
-    text-align: center;
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
 }
 
-.sidebar {
-    background-color: #121212; /* Dark sidebar */
-    padding: 20px;
+main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+  padding: 20px;
 }
 
-.playlist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+aside {
+  background-color: #f4f4f4;
+  padding: 10px;
 }
 
-.playlist li {
-    margin-bottom: 10px;
-    cursor: pointer;
+section {
+  width: 100%;
 }
 
-.content {
-    padding: 20px;
+section div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
 }
 
-.featured-songs {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+section div:nth-child(odd) {
+  background-color: #f2f2f2;
 }
 
-.song {
-    background-color: #282828; /* Song box color */
-    padding: 10px;
-}
-
-.footer {
-    grid-column: span 2;
-    text-align: center;
-    padding: 10px;
-    background-color: #121212; /* Dark footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

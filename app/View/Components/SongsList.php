@@ -14,7 +14,7 @@ class SongsList extends Component
      */
     public function __construct($songs)
     {
-        //
+        $this->songs = $songs;
     }
 
     /**

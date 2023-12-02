@@ -1,26 +1,35 @@
-<title>{{ $title ?? "Cool Web App" }}</title>
-<link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet" />
-<div class="container">
-    <header class="header">
-        <!-- Header content -->
-        <h1>Welcome to MyMusicApp</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title ?? "Cool Web App" }}</title>
+    <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1>{{ isset($pageName) ? $pageName : 'Default Page' }}</h1>
+        <p>Playlist Description or Information</p>
     </header>
 
-    <aside class="sidebar">
-        <!-- Sidebar content (maybe playlists or navigation) -->
-        <h2>Playlists</h2>
-        <ul class="playlist">
-            <li>Playlist 1</li>
-            <li>Playlist 2</li>
-            <li>Playlist 3</li>
-            <!-- Add more playlists -->
-        </ul>
-    </aside>
+    <main>
+        <aside>
+            <h2>Saved Playlists</h2>
+            <ul>
+                <li>Playlist 1</li>
+                <li>Playlist 2</li>
+                <li>Playlist 3</li>
+            </ul>
+        </aside>
 
-    @yield('content')
+        @yield('content')
+    </main>
 
-    <footer class="footer">
-        <!-- Footer content (copyright, about, etc.) -->
-        <p>&copy; 2023 MyMusicApp</p>
+    <footer>
+        <p>&copy; 2023 Playlist App | <a href="#">About</a> | <a href="#">Contact</a></p>
     </footer>
-</div>
+</body>
+
+</html>

@@ -1,101 +1,110 @@
-<title>
-  Music App
-</title>
-<style>
-  /* Your general styles for layout, fonts, etc. */
+<!DOCTYPE html>
+<html lang="en">
 
-/* Specific styles for the music app home page */
-.container {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: auto 1fr auto;
-    gap: 10px;
-    min-height: 100vh;
-    background-color: #191414; /* Dark background similar to Spotify */
-    color: #fff; /* Text color */
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.header {
-    grid-column: span 2;
-    padding: 20px;
-    background-color: #1DB954; /* Green color similar to Spotify */
-    text-align: center;
-}
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
 
-.sidebar {
-    background-color: #121212; /* Dark sidebar */
-    padding: 20px;
-}
+        main {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
 
-.playlist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        aside {
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
 
-.playlist li {
-    margin-bottom: 10px;
-    cursor: pointer;
-}
+        section {
+            width: 100%;
+        }
 
-.content {
-    padding: 20px;
-}
+        section div {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
 
-.featured-songs {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
+        section div:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
 
-.song {
-    background-color: #282828; /* Song box color */
-    padding: 10px;
-}
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
 
-.footer {
-    grid-column: span 2;
-    text-align: center;
-    padding: 10px;
-    background-color: #121212; /* Dark footer */
-}
-
-</style>
-<div class="container">
-    <header class="header">
-        <!-- Header content -->
-        <h1>Welcome to MyMusicApp</h1>
+<body>
+    <header>
+        <h1>Playlist Name</h1>
+        <p>Playlist Description or Information</p>
     </header>
 
-    <aside class="sidebar">
-        <!-- Sidebar content (maybe playlists or navigation) -->
-        <h2>Playlists</h2>
-        <ul class="playlist">
-            <li>Playlist 1</li>
-            <li>Playlist 2</li>
-            <li>Playlist 3</li>
-            <!-- Add more playlists -->
-        </ul>
-    </aside>
+    <main>
+        <aside>
+            <h2>Saved Playlists</h2>
+            <ul>
+                <li>Playlist 1</li>
+                <li>Playlist 2</li>
+                <li>Playlist 3</li>
+            </ul>
+        </aside>
 
-    <main class="content">
-        <!-- Main content (featured songs, albums, etc.) -->
-        <h2>Featured Songs</h2>
-        <div class="featured-songs">
-            <div class="song">
-                <h3>Song Title 1</h3>
-                <p>Artist Name - Album Name</p>
+        <section>
+            <div>
+                <div>Serial No</div>
+                <div>Song Title</div>
+                <div>Artist Name</div>
+                <div>Album Name</div>
+                <div>Duration</div>
             </div>
-            <div class="song">
-                <h3>Song Title 2</h3>
-                <p>Artist Name - Album Name</p>
+            <div>
+                <div>1</div>
+                <div>Song 1</div>
+                <div>Artist 1</div>
+                <div>Album 1</div>
+                <div>3:30</div>
             </div>
-            <!-- Add more featured songs -->
-        </div>
+            <div>
+                <div>2</div>
+                <div>Song 2</div>
+                <div>Artist 2</div>
+                <div>Album 2</div>
+                <div>4:15</div>
+            </div>
+            <!-- Add more rows as needed -->
+        </section>
     </main>
 
-    <footer class="footer">
-        <!-- Footer content (copyright, about, etc.) -->
-        <p>&copy; 2023 MyMusicApp</p>
+    <footer>
+        <p>&copy; 2023 Playlist App | <a href="#">About</a> | <a href="#">Contact</a></p>
     </footer>
-</div>
+</body>
+
+</html>

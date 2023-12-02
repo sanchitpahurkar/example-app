@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Models\Song;
-use App\Http\Controllers\PlaylistController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,40 +12,46 @@ use App\Http\Controllers\PlaylistController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/veggies/{veggieName}', function ($veggieName) {
-    return $veggieName;
-})->where('veggieName', '[a-zA-Z]+'); // Accepts any alphabetical characters for veggieName
-
-Route::get('/veggies/{veggieName}', function ($veggieName) {
-    $allowedVeggies = ['baigan', 'bhindi', 'aaloo', 'gobhi'];
-
-    if (in_array($veggieName, $allowedVeggies)) {
-        return $veggieName;
-    } else {
-        abort(404);
-    }
-});
-
 Route::get('/veggies', function () {
     return view('veggies');
 });
+Route::get('/veggies/{veggieName}', function (string $veggieName){
+	return $veggieName;
+})->whereIn('veggieName',['baigan','bhindi','aaloo','gobhi']);
 
 Route::get('/songs_static', function () {
-    return view('songs_static');
-  });
-
-Route::get('/songs', function() {
-    $songs = Song::all(); // Fetch all songs from the database
- 
-    return view('songs', ['songs' => $songs]);
+    return "Songs";
 });
-
-Route::get('/playlists/{playlistId}',  function ($playlistId) {
-    return view('playlist',[ 'songs' => Song::all(), 'playlistId' => $playlistId]);
+Route::get('/songs_static', function () {
+    $song = new Song();
+    $song->setTitle('With You');
+    return view('songs', [ 'song' => $song ]);
 });
-
+Route::get('/songs_static', function () {
+    $song1 = new Song();
+    $song1->setTitle("Stan");
+    $song1->setArtist("Eminem");
   
+    $song2 = new Song();
+    $song2->setTitle("Nothing Else Matters");
+    $song2->setArtist("Metallica");
+  
+    $song3 = new Song();
+    $song3->setTitle("With You");
+    $song3->setArtist("A P Dhillon");
+  
+    return view('songs', [ 'songs' => [ $song1, $song2, $song3 ] ]); 
+  });
+  Route::get('/songs', function () {
+    return view('songs', [ 'songs' => Song::all() ] );
+});
+Route::get('/songs_static', function () {
+    return view('songs_static');
+});
+Route::get('/playlists/{playlistId}', function (string $playlistId) {
+    return view('playlist', ['songs' => Song::all(), 'playlistId' => $playlistId ]);
+  });
